@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize"; //herramienta para asignar un tipo de dato
-import sequelize from "../config/database"; //la configuracion que realicé anteriormente para mi DB
+import sequelize from "../config/database.js"; //la configuracion que realicé anteriormente para mi DB
 
 const Movie = sequelize.define('Movie',{
     title:{
