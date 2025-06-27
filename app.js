@@ -6,12 +6,16 @@ const app= express();
 const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
-app.use("/", (req,res)=>{
-    return res.json("ok:true")});
+app.use("/api/movies", moviesRoutes);
 
-app.listen(PORT,()=> {
-        console.log(`Servidor corriendo en http://localhost:${PORT}`)
+    //init base de datos
+initDB().then(()=>{  
+   app.listen(PORT,()=> {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`)
+   });
 });
+
+
 
 
 
