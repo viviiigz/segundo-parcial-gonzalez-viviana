@@ -13,4 +13,13 @@ const sequelize = new Sequelize( //creo una config para el sequelize
     }
 
 );
+export const initDB = async () => {
+    try{
+        await sequelize.authenticate();
+        console.log("Conexión a MySQL establecida.");
+        await sequelize.sync()
+    }catch(error){
+        console.error("Error al conectar a la base de datos:",error);
+    }
+};
 export default sequelize;
